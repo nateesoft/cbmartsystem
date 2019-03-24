@@ -2,7 +2,6 @@
 build
 database
 dist
-img
 lib
 test
 *.zip
