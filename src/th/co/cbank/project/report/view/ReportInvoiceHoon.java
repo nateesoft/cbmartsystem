@@ -63,7 +63,7 @@ public class ReportInvoiceHoon extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ชื่อบัญชี", "เลขที่บัญชี", "วันที่กู้", "วันครบกำหนดชำระ", "เงินกู้คงเหลือ", "ยอดชำระแล้ว", "ดอกเบี้ย", "หุ้นถือครอง", "มูลค่าหุ้น (บาท)", "บัตรประชาชน", "ที่อยู่"
+                "ชื่อบัญชี", "เลขที่บัญชี", "วันที่กู้", "วันครบกำหนดชำระ", "เงินกู้คงเหลือ", "ยอดชำระแล้ว", "ดอกเบี้ย(%)", "หุ้นถือครอง", "มูลค่าหุ้น (บาท)", "บัตรประชาชน", "ที่อยู่"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -312,7 +312,7 @@ public class ReportInvoiceHoon extends javax.swing.JDialog {
         }
 
         String sql = "select p.p_custcode, concat(p_custname, ' ', p_custsurname) name, "
-                + "loan_docno, loan_docdate, loan_amount, '0.00' loan_interest, loan_datepay, "
+                + "loan_docno, loan_docdate, loan_amount, loan_interest, loan_datepay, "
                 + "pay_amount, (select concat(addr_no, ' " + toStr("หมู่") + "', addr_moo, ' ', addr_road, ' ', addr_soi, "
                 + "' " + toStr("ตำบล") + "', addr_tambon, ' " + toStr("อำเภอ") + "', addr_aumphur, ' " + toStr("จังหวัด") + "', addr_province, ' " + toStr("รหัสไปรษณีย์") + " ', addr_post) address "
                 + "from cb_profile_address where cust_code=a.cust_code limit 0,1 "
